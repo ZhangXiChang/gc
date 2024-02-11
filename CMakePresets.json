@@ -1,0 +1,99 @@
+{
+    "version": 7,
+    "configurePresets": [
+        {
+            "name": "mingw-debug",
+            "description": "MinGW使用Debug模式配置",
+            "displayName": "MinGW-Debug",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Debug",
+                "CMAKE_C_STANDARD": "17",
+                "CMAKE_CXX_STANDARD": "20",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+            },
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        },
+        {
+            "name": "mingw-minsizerel",
+            "description": "MinGW使用MinSizeRel模式配置",
+            "displayName": "MinGW-MinSizeRel",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "MinSizeRel",
+                "CMAKE_C_STANDARD": "17",
+                "CMAKE_CXX_STANDARD": "20",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+            },
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        },
+        {
+            "name": "mingw-release",
+            "description": "MinGW使用Release模式配置",
+            "displayName": "MinGW-Release",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "Release",
+                "CMAKE_C_STANDARD": "17",
+                "CMAKE_CXX_STANDARD": "20",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+            },
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        },
+        {
+            "name": "mingw-relwithdebinfo",
+            "description": "MinGW使用RelWithDebInfo模式配置",
+            "displayName": "MinGW-RelWithDebInfo",
+            "generator": "MinGW Makefiles",
+            "cacheVariables": {
+                "CMAKE_BUILD_TYPE": "RelWithDebInfo",
+                "CMAKE_C_STANDARD": "17",
+                "CMAKE_CXX_STANDARD": "20",
+                "VCPKG_TARGET_TRIPLET": "x64-mingw-static",
+                "VCPKG_HOST_TRIPLET": "x64-mingw-static"
+            },
+            "toolchainFile": "$env{VCPKG_ROOT}/scripts/buildsystems/vcpkg.cmake"
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "debug",
+            "description": "Debug模式构建",
+            "displayName": "Debug",
+            "configurePreset": "mingw-debug",
+            "targets": [
+                "app"
+            ]
+        },
+        {
+            "name": "minsizerel",
+            "description": "MinSizeRel模式构建",
+            "displayName": "MinSizeRel",
+            "configurePreset": "mingw-minsizerel",
+            "targets": [
+                "app"
+            ]
+        },
+        {
+            "name": "release",
+            "description": "Release模式构建",
+            "displayName": "Release",
+            "configurePreset": "mingw-release",
+            "targets": [
+                "app"
+            ]
+        },
+        {
+            "name": "relwithdebinfo",
+            "description": "RelWithDebInfo模式构建",
+            "displayName": "RelWithDebInfo",
+            "configurePreset": "mingw-relwithdebinfo",
+            "targets": [
+                "app"
+            ]
+        }
+    ]
+}
