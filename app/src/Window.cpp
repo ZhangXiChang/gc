@@ -1,12 +1,10 @@
-#include "MainWindow.h"
-#include "ui_MainWindow.h"
+#include "Window.h"
+#include "ui_Window.h"
 
-#include <iostream>
-
-MainWindow::MainWindow(QWidget *parent)
+Window::Window(QWidget *parent)
     : QWidget(parent)
 {
-    mUi = new Ui::MainWindow();
+    mUi = new Ui::Window();
     mUi->setupUi(this);
     mUi->DisconnectTheCentralServerButton->setEnabled(false);
     mUi->HubServerConnectionStatusLabel->setText("离线");
@@ -293,7 +291,7 @@ MainWindow::MainWindow(QWidget *parent)
                 }
             });
 }
-MainWindow::~MainWindow()
+Window::~Window()
 {
     delete mP2PClient;
     delete mP2PServer;

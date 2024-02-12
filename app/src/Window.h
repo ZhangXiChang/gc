@@ -1,14 +1,15 @@
 #pragma once
+#include <iostream>
+#include <optional>
+
 #include <QWidget>
 
 #include <hv/TcpServer.h>
 #include <hv/TcpClient.h>
 
-#include <optional>
-
 namespace Ui
 {
-    class MainWindow;
+    class Window;
 } // namespace Ui
 
 struct DataPacket
@@ -17,10 +18,10 @@ struct DataPacket
     char body[1024];
 };
 
-class MainWindow : public QWidget
+class Window : public QWidget
 {
 private:
-    Ui::MainWindow *mUi = nullptr;
+    Ui::Window *mUi = nullptr;
 
     hv::TcpClient *mClient = nullptr;
     int mClientSocket = 0;
@@ -38,6 +39,6 @@ private:
     std::optional<hv::SocketChannelPtr> mP2PPeerServer;
 
 public:
-    MainWindow(QWidget *parent = nullptr);
-    ~MainWindow();
+    Window(QWidget *parent = nullptr);
+    ~Window();
 };
